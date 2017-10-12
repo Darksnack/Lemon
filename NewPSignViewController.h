@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  NewPSignViewController.h
 //  Lemon
 //
 //  Created by darksnake on 2017/10/12.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface NewPSignViewController : UIViewController
 
 @end
