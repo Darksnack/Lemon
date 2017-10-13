@@ -109,12 +109,15 @@
     [NextBtn addTarget:self action:@selector(NextBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     
     //底部图片设置（柠檬嘀送）
-    UIImageView *bottomImageV = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo@2x.png"]];
+    UIImageView *bottomImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"形状-1.png"]];
+    
+    [bottomImageView setFrame:CGRectMake((self.view.frame.size.width - bottomImageView.frame.size.width)/2, self.view.frame.size.height-bottomImageView.frame.size.height-10, bottomImageView.frame.size.width, bottomImageView.frame.size.height)];
     
     //图片的详细设置
     
     
     [self.view addSubview:phoneImageView];
+    [self.view addSubview:bottomImageView];
     [self.view addSubview:inputNumLabel];
     [self.view addSubview:explainLabel];
     [self.view addSubview:TeleNumber];
