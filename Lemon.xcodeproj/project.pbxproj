@@ -17,13 +17,16 @@
 		2D280B201F8F376F00598009 /* 手机-(1)@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D280B161F8F376F00598009 /* 手机-(1)@2x.png */; };
 		2D280B211F8F376F00598009 /* 隐藏-(1)@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D280B171F8F376F00598009 /* 隐藏-(1)@2x.png */; };
 		2D280B221F8F376F00598009 /* 隐藏@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D280B181F8F376F00598009 /* 隐藏@2x.png */; };
-		2D280B251F8F44E000598009 /* NewPSignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D280B241F8F44E000598009 /* NewPSignViewController.m */; };
 		2D280B2E1F8F458600598009 /* phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D280B281F8F458600598009 /* phone.png */; };
 		2D280B2F1F8F458600598009 /* phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D280B291F8F458600598009 /* phone@2x.png */; };
 		2D280B301F8F458600598009 /* phone@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D280B2A1F8F458600598009 /* phone@3x.png */; };
 		2D280B311F8F458600598009 /* 形状-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D280B2B1F8F458600598009 /* 形状-1.png */; };
 		2D280B321F8F458600598009 /* 形状-1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D280B2C1F8F458600598009 /* 形状-1@2x.png */; };
 		2D280B331F8F458600598009 /* 形状-1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D280B2D1F8F458600598009 /* 形状-1@3x.png */; };
+		2D2BDB691F90AC51006FFC7F /* ZFJSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2BDB681F90AC51006FFC7F /* ZFJSegmentedControl.m */; };
+		2D2BDB6D1F90AFF8006FFC7F /* WLUnitField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2BDB6C1F90AFF8006FFC7F /* WLUnitField.m */; };
+		2D2BDB701F90B0C5006FFC7F /* VerificationCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D2BDB6F1F90B0C5006FFC7F /* VerificationCodeViewController.m */; };
+		2D42CA951F8F759800A3DEB7 /* NewPSignViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D42CA941F8F759800A3DEB7 /* NewPSignViewController.m */; };
 		2D4F6EA31F8C9A5000271E7F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F6EA21F8C9A5000271E7F /* main.m */; };
 		2D4F6EA61F8C9A5000271E7F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F6EA51F8C9A5000271E7F /* AppDelegate.m */; };
 		2D4F6EA91F8C9A5000271E7F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F6EA81F8C9A5000271E7F /* ViewController.m */; };
@@ -54,14 +57,20 @@
 		2D280B161F8F376F00598009 /* 手机-(1)@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "手机-(1)@2x.png"; sourceTree = "<group>"; };
 		2D280B171F8F376F00598009 /* 隐藏-(1)@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "隐藏-(1)@2x.png"; sourceTree = "<group>"; };
 		2D280B181F8F376F00598009 /* 隐藏@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "隐藏@2x.png"; sourceTree = "<group>"; };
-		2D280B231F8F44E000598009 /* NewPSignViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewPSignViewController.h; path = ../NewPSignViewController.h; sourceTree = "<group>"; };
-		2D280B241F8F44E000598009 /* NewPSignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewPSignViewController.m; path = ../NewPSignViewController.m; sourceTree = "<group>"; };
 		2D280B281F8F458600598009 /* phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = phone.png; sourceTree = "<group>"; };
 		2D280B291F8F458600598009 /* phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone@2x.png"; sourceTree = "<group>"; };
 		2D280B2A1F8F458600598009 /* phone@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "phone@3x.png"; sourceTree = "<group>"; };
 		2D280B2B1F8F458600598009 /* 形状-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "形状-1.png"; sourceTree = "<group>"; };
 		2D280B2C1F8F458600598009 /* 形状-1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "形状-1@2x.png"; sourceTree = "<group>"; };
 		2D280B2D1F8F458600598009 /* 形状-1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "形状-1@3x.png"; sourceTree = "<group>"; };
+		2D2BDB671F90AC51006FFC7F /* ZFJSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZFJSegmentedControl.h; path = Lemon/ZFJSegmentedControl/ZFJSegmentedControl.h; sourceTree = "<group>"; };
+		2D2BDB681F90AC51006FFC7F /* ZFJSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZFJSegmentedControl.m; path = Lemon/ZFJSegmentedControl/ZFJSegmentedControl.m; sourceTree = "<group>"; };
+		2D2BDB6B1F90AFF8006FFC7F /* WLUnitField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLUnitField.h; sourceTree = "<group>"; };
+		2D2BDB6C1F90AFF8006FFC7F /* WLUnitField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLUnitField.m; sourceTree = "<group>"; };
+		2D2BDB6E1F90B0C5006FFC7F /* VerificationCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationCodeViewController.h; sourceTree = "<group>"; };
+		2D2BDB6F1F90B0C5006FFC7F /* VerificationCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerificationCodeViewController.m; sourceTree = "<group>"; };
+		2D42CA931F8F759800A3DEB7 /* NewPSignViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPSignViewController.h; sourceTree = "<group>"; };
+		2D42CA941F8F759800A3DEB7 /* NewPSignViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPSignViewController.m; sourceTree = "<group>"; };
 		2D4F6E9E1F8C9A5000271E7F /* Lemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D4F6EA21F8C9A5000271E7F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2D4F6EA41F8C9A5000271E7F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -166,6 +175,25 @@
 			path = ios;
 			sourceTree = "<group>";
 		};
+		2D2BDB661F90AC22006FFC7F /* ZFJSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				2D2BDB671F90AC51006FFC7F /* ZFJSegmentedControl.h */,
+				2D2BDB681F90AC51006FFC7F /* ZFJSegmentedControl.m */,
+			);
+			name = ZFJSegmentedControl;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		2D2BDB6A1F90AFF8006FFC7F /* WLUnitField */ = {
+			isa = PBXGroup;
+			children = (
+				2D2BDB6B1F90AFF8006FFC7F /* WLUnitField.h */,
+				2D2BDB6C1F90AFF8006FFC7F /* WLUnitField.m */,
+			);
+			path = WLUnitField;
+			sourceTree = "<group>";
+		};
 		2D4F6E951F8C9A5000271E7F = {
 			isa = PBXGroup;
 			children = (
@@ -187,13 +215,17 @@
 		2D4F6EA01F8C9A5000271E7F /* Lemon */ = {
 			isa = PBXGroup;
 			children = (
+				2D2BDB6A1F90AFF8006FFC7F /* WLUnitField */,
+				2D2BDB661F90AC22006FFC7F /* ZFJSegmentedControl */,
 				2D280B0A1F8F376F00598009 /* Resource */,
 				2D4F6EA41F8C9A5000271E7F /* AppDelegate.h */,
 				2D4F6EA51F8C9A5000271E7F /* AppDelegate.m */,
 				2D4F6EA71F8C9A5000271E7F /* ViewController.h */,
 				2D4F6EA81F8C9A5000271E7F /* ViewController.m */,
-				2D280B231F8F44E000598009 /* NewPSignViewController.h */,
-				2D280B241F8F44E000598009 /* NewPSignViewController.m */,
+				2D42CA931F8F759800A3DEB7 /* NewPSignViewController.h */,
+				2D42CA941F8F759800A3DEB7 /* NewPSignViewController.m */,
+				2D2BDB6E1F90B0C5006FFC7F /* VerificationCodeViewController.h */,
+				2D2BDB6F1F90B0C5006FFC7F /* VerificationCodeViewController.m */,
 				2D4F6EAA1F8C9A5000271E7F /* Main.storyboard */,
 				2D4F6EAD1F8C9A5000271E7F /* Assets.xcassets */,
 				2D4F6EAF1F8C9A5000271E7F /* LaunchScreen.storyboard */,
@@ -339,10 +371,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D2BDB701F90B0C5006FFC7F /* VerificationCodeViewController.m in Sources */,
 				2D4F6EA91F8C9A5000271E7F /* ViewController.m in Sources */,
-				2D280B251F8F44E000598009 /* NewPSignViewController.m in Sources */,
+				2D2BDB6D1F90AFF8006FFC7F /* WLUnitField.m in Sources */,
+				2D2BDB691F90AC51006FFC7F /* ZFJSegmentedControl.m in Sources */,
 				2D4F6EA61F8C9A5000271E7F /* AppDelegate.m in Sources */,
 				2D4F6EA31F8C9A5000271E7F /* main.m in Sources */,
+				2D42CA951F8F759800A3DEB7 /* NewPSignViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@
 #import "VerificationCodeViewController.h"
 #import "WLUnitField.h"
 
-@interface VerificationCodeViewController ()
+@interface VerificationCodeViewController ()<UITextFieldDelegate,WLUnitFieldDelegate>
 
 @end
 
@@ -20,16 +20,10 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
     
-    //导航栏按钮设置
-    [self addNavBarButtonItem];
+    //配置视图
     [self setUpView];
 }
-#pragma mark - 导航栏按钮设置
-- (void)addNavBarButtonItem{
-    
-    UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(onClickedBackBtn)];
-    self.navigationItem.leftBarButtonItem = leftBarItem;
-}
+
 #pragma mark - 配置视图
 - (void)setUpView{
     
@@ -39,11 +33,22 @@
     
     UILabel *inputNumLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 290, phoneImageView.frame.origin.y+phoneImageView.frame.size.height+10, (self.view.frame.size.width - 75)/2, 30)];
     
-    UILabel *teleNumLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 300, inputNumLabel.frame.origin.y+inputNumLabel.frame.size.height+10, 24, 15)];
+    UILabel *teleNumLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width - 325, inputNumLabel.frame.origin.y+inputNumLabel.frame.size.height+10, self.teleNum.length+100, 15)];
+    
+    UIButton *sendOutBtn = [[UIButton alloc] initWithFrame:CGRectMake(teleNumLabel.frame.origin.x + teleNumLabel.frame.size.width, inputNumLabel.frame.origin.y+inputNumLabel.frame.size.height+10, 75, 15)];
+    
+    UILabel *infoLabel = [[UILabel alloc] initWithFrame:CGRectMake(sendOutBtn.frame.origin.x+sendOutBtn.frame.size.width, inputNumLabel.frame.origin.y+inputNumLabel.frame.size.height+10, 75, 15)];
+    
+    UIButton *BackBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width/5, self.view.frame.size.width/5)];
+    
+    //底部图片设置（柠檬嘀送）
+    UIImageView *bottomImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"形状-1.png"]];
+    
+    [bottomImageView setFrame:CGRectMake((self.view.frame.size.width - bottomImageView.frame.size.width)/2, self.view.frame.size.height-bottomImageView.frame.size.height-10, bottomImageView.frame.size.width, bottomImageView.frame.size.height)];
     
     //第一行label具体设置
     [inputNumLabel setBackgroundColor:[UIColor clearColor]];
-    [inputNumLabel setText:@"请输入验证码"];
+    [inputNumLabel setText:@"输入验证码"];
     [inputNumLabel setTextColor:[UIColor blackColor]];
     [inputNumLabel setFont:[UIFont systemFontOfSize:20]];
     [inputNumLabel setTextAlignment:NSTextAlignmentRight];
@@ -55,9 +60,49 @@
     [teleNumLabel setFont:[UIFont systemFontOfSize:13]];
     [teleNumLabel setTextAlignment:NSTextAlignmentRight];
     
+    //重新发送按钮的具体设置
+    [sendOutBtn setTitle:@"重新发送" forState:UIControlStateNormal];
+    [sendOutBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    sendOutBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+    sendOutBtn.layer.borderColor = [[UIColor clearColor] CGColor];
+    [sendOutBtn addTarget:self action:@selector(sendOutBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    
+    //没收到label具体设置
+    [infoLabel setBackgroundColor:[UIColor clearColor]];
+    [infoLabel setText:@"没收到？"];
+    [infoLabel setTextColor:[UIColor lightGrayColor]];
+    [infoLabel setFont:[UIFont systemFontOfSize:13]];
+    [infoLabel setTextAlignment:NSTextAlignmentLeft];
+    
+    //铺设验证码框
+    WLUnitField *idenCodeTextFie = [[WLUnitField alloc] initWithInputUnitCount:4];
+    idenCodeTextFie.frame = CGRectMake(teleNumLabel.frame.origin.x+10, infoLabel.frame.origin.y+infoLabel.frame.size.height+25, 240, 50);
+    idenCodeTextFie.unitSpace = 12;
+    idenCodeTextFie.trackTintColor = [UIColor greenColor];
+    
+    //返回按钮的具体设置
+    [BackBtn setTitle:@"返回" forState:UIControlStateNormal];
+    [BackBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    BackBtn.titleLabel.font = [UIFont systemFontOfSize:20];
+    BackBtn.layer.borderColor = [[UIColor clearColor] CGColor];
+    [BackBtn addTarget:self action:@selector(backBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    
+    //控件铺设到界面上
+    [self.view addSubview:BackBtn];
     [self.view addSubview:phoneImageView];
     [self.view addSubview:inputNumLabel];
     [self.view addSubview:teleNumLabel];
+    [self.view addSubview:sendOutBtn];
+    [self.view addSubview:infoLabel];
+    [self.view addSubview:bottomImageView];
+    [self.view addSubview:idenCodeTextFie];
+}
+#pragma mark - 点击背景收回键盘
+/*
+ *点击背景回收键盘
+ */
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -82,12 +127,28 @@
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
 }
-#pragma mark - 导航栏按钮点击事件
-- (void)onClickedBackBtn{
-
+#pragma mark - 验证码验证是否正确方法
+- (void)checkidentifyCode{
     
+   
     
 }
+#pragma mark - 导航栏按钮点击事件
+/*
+ *返回按钮点击事件
+ */
+- (void)backBtnClicked{
+    
+    //返回上一界面，同时关闭当前界面
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+#pragma mark - 按钮点击事件
+- (void)sendOutBtnClicked{
+
+    //向服务器发送
+}
+
 /*
 #pragma mark - Navigation
 

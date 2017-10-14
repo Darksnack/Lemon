@@ -157,7 +157,7 @@
     [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [self.navigationController.navigationBar setShadowImage:nil];
 }
-
+#pragma mark - 点击背景收回键盘
 /*
  *点击背景回收键盘
  */
