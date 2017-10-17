@@ -8,8 +8,11 @@
 
 #import "VerificationCodeViewController.h"
 #import "WLUnitField.h"
+#import "setUpPasswordVC.h"
 
 @interface VerificationCodeViewController ()<UITextFieldDelegate,WLUnitFieldDelegate>
+
+@property (nonatomic,strong)WLUnitField *idenCodeTextFie;
 
 @end
 
@@ -75,10 +78,11 @@
     [infoLabel setTextAlignment:NSTextAlignmentLeft];
     
     //铺设验证码框
-    WLUnitField *idenCodeTextFie = [[WLUnitField alloc] initWithInputUnitCount:4];
-    idenCodeTextFie.frame = CGRectMake(teleNumLabel.frame.origin.x+10, infoLabel.frame.origin.y+infoLabel.frame.size.height+25, 240, 50);
-    idenCodeTextFie.unitSpace = 12;
-    idenCodeTextFie.trackTintColor = [UIColor greenColor];
+    _idenCodeTextFie = [[WLUnitField alloc] initWithInputUnitCount:4];
+    _idenCodeTextFie.frame = CGRectMake(teleNumLabel.frame.origin.x+10, infoLabel.frame.origin.y+infoLabel.frame.size.height+25, 240, 50);
+    _idenCodeTextFie.unitSpace = 12;
+    _idenCodeTextFie.trackTintColor = [UIColor greenColor];
+    [_idenCodeTextFie addTarget:self action:@selector(checkidentifyCode) forControlEvents:UIControlEventEditingChanged];
     
     //返回按钮的具体设置
     [BackBtn setTitle:@"返回" forState:UIControlStateNormal];
@@ -95,7 +99,7 @@
     [self.view addSubview:sendOutBtn];
     [self.view addSubview:infoLabel];
     [self.view addSubview:bottomImageView];
-    [self.view addSubview:idenCodeTextFie];
+    [self.view addSubview:_idenCodeTextFie];
 }
 #pragma mark - 点击背景收回键盘
 /*
@@ -103,6 +107,7 @@
  */
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -128,11 +133,31 @@
     [self.navigationController.navigationBar setShadowImage:nil];
 }
 #pragma mark - 验证码验证是否正确方法
+
+/*
+ *检验验证码是否正确
+ */
 - (void)checkidentifyCode{
     
-   
+    if (_idenCodeTextFie.text.length == 4) {
+        //向服务器发送验证信息-todo
+        NSLog(@"%@",_idenCodeTextFie.text);
+        @try{
+            
+            setUpPasswordVC *setUpPasswordvc = [[setUpPasswordVC alloc] init];
+            setUpPasswordvc.identifyVC = self;
+            [self presentViewController:setUpPasswordvc animated:NO completion:nil];
+        }
+        @catch(NSException *exception) {
+            NSLog(@"exception:%@", exception);
+        }
+        @finally {
+            
+        }
+    }
     
 }
+
 #pragma mark - 导航栏按钮点击事件
 /*
  *返回按钮点击事件
@@ -146,7 +171,7 @@
 #pragma mark - 按钮点击事件
 - (void)sendOutBtnClicked{
 
-    //向服务器发送
+    //向服务器发送请求验证码的请求-todo
 }
 
 /*

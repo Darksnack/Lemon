@@ -8,6 +8,7 @@
 
 #import "NewPSignViewController.h"
 #import "VerificationCodeViewController.h"
+#import "LoginViewController.h"
 
 @interface NewPSignViewController ()<UITextFieldDelegate>
 
@@ -32,6 +33,7 @@
 #pragma mark - 导航栏按钮设置
 - (void)addNavBarButtonItem{
     
+    //在viewwillappear写
     UIBarButtonItem *leftBarItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(onClickedBackBtn)];
     self.navigationItem.leftBarButtonItem = leftBarItem;
     
@@ -163,6 +165,7 @@
  */
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
+    
 }
 
 #pragma mark - 按钮点击事件
@@ -187,11 +190,9 @@
 - (void)_nextBtnClicked{
 
     VerificationCodeViewController *CodeVC = [[VerificationCodeViewController alloc] init];
-//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:CodeVC];
     
     CodeVC.teleNum = self.teleNumber.text;
-    NSLog(@"%@", CodeVC.teleNum);
-    [self.navigationController presentViewController:CodeVC animated:NO completion:nil];
+    [self presentViewController:CodeVC animated:NO completion:nil];
 }
 
 #pragma mark - textField的编辑响应事件

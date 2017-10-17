@@ -21,6 +21,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self setUpView];
 }
+#pragma mark -- 配置视图
 - (void)setUpView{
     
     //设置图片
@@ -58,6 +59,26 @@
     UINavigationController *NewPNav = [[UINavigationController alloc] initWithRootViewController:NewPVC];
     [self presentViewController:NewPNav animated:YES completion:nil];
     
+}
+
+#pragma mark - 隐藏导航栏
+/*
+ *隐藏导航栏
+ */
+- (void)viewWillAppear:(BOOL)animated{
+    
+    //设置导航栏背景图片为一个空的image
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    
+    //去掉透明后导航栏下边的黑边
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    
+    //不让其他页面的导航栏变为透明 ，重置
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:nil];
 }
 
 - (void)didReceiveMemoryWarning {
